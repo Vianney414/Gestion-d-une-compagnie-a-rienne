@@ -1,0 +1,39 @@
+public abstract class Employe extends Personne {
+    private String numeroEmploye;
+    private String dateEmbauche;
+
+    public Employe(String id, String nom, String adr, String tel, String numE, String dateE) {
+        super(id, nom, adr, tel);
+        this.numeroEmploye = numE;
+        this.dateEmbauche = dateE;
+    }
+
+    public abstract String obtenirRole(); // [cite: 93]
+}
+
+public class Pilote extends Employe {
+    private String licence;
+    private int heuresDeVol;
+
+    public Pilote(String id, String nom, String adr, String tel, String numE, String dateE, String licence) {
+        super(id, nom, adr, tel, numE, dateE);
+        this.licence = licence;
+    }
+
+    @Override
+    public String obtenirRole() { return "Pilote"; }
+    
+    public void affecterVol() { System.out.println("Pilote affecté au vol."); }
+}
+
+public class PersonnelCabine extends Employe {
+    private String qualification;
+
+    public PersonnelCabine(String id, String nom, String adr, String tel, String numE, String dateE, String qualif) {
+        super(id, nom, adr, tel, numE, dateE);
+        this.qualification = qualif;
+    }
+
+    @Override
+    public String obtenirRole() { return "Personnel de Cabine"; }
+}
